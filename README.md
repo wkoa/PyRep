@@ -213,7 +213,7 @@ Here is a list of robots currently supported by PyRep:
 - Kinova Jaco Hand
 - Rethink Baxter Gripper
 - Franka Emika Panda Gripper
-
+- Robotiq85 Gripper
 #### Mobile Robots
 
 - Kuka YouBot
