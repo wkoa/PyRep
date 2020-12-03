@@ -43,7 +43,14 @@ __Remember to source your bashrc (`source ~/.bashrc`) or
 zshrc (`source ~/.zshrc`) after this.
 
 Finally install the python library:
-
+### For PyCharm
+Open ``Edit->Run configurations``, and manually set ``Environment variables``
+```
+COPPELIASIM_ROOT=EDIT/ME/PATH/TO/COPPELIASIM/INSTALL/DIR
+LD_LIBRARY_PATH=:EDIT/ME/PATH/TO/COPPELIASIM/INSTALL/DIR
+QT_QPA_PLATFORM_PLUGIN_PATH=EDIT/ME/PATH/TO/COPPELIASIM/INSTALL/DIR
+```
+Then
 ```bash
 pip3 install -r requirements.txt
 pip3 install .
