@@ -3,6 +3,7 @@ from pyrep.objects.object import Object
 from pyrep.objects.proximity_sensor import ProximitySensor
 from pyrep.objects.force_sensor import ForceSensor
 from pyrep.robots.robot_component import RobotComponent
+
 import numpy as np
 
 POSITION_ERROR = 0.001
@@ -144,3 +145,7 @@ class Gripper(RobotComponent):
         if len(self._touch_sensors) == 0:
             raise NotImplementedError('No touch sensors for this robot!')
         return [ts.read()[0] for ts in self._touch_sensors]
+
+    def get_object_in_hand(self):
+        dist, object_handle = self._proximity_sensor.read()
+        return dist, object_handle

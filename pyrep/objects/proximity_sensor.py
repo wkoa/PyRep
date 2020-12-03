@@ -15,17 +15,17 @@ class ProximitySensor(Object):
     def _get_requested_type(self) -> ObjectType:
         return ObjectType.PROXIMITY_SENSOR
 
-    def read(self) -> float:
+    def read(self) -> (float, int):
         """Read the distance between sensor and first detected object. If
         there is no detected object returns -1.0. It can be considered as
         maximum measurable distance of the sensor.
 
         :return: Float distance to the first detected object
         """
-        state, _, points, _ = sim.simReadProximitySensor(self._handle)
+        state, detected_object, points, _ = sim.simReadProximitySensor(self._handle)
         if state:
-            return sqrt(points[0] ** 2 + points[1] ** 2 + points[2] ** 2)
-        return -1.0
+            return sqrt(points[0] ** 2 + points[1] ** 2 + points[2] ** 2), detected_object
+        return -1.0, None
 
     def is_detected(self, obj: Object) -> bool:
         """Checks whether the proximity sensor detects the indicated object.

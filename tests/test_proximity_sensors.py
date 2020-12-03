@@ -12,7 +12,7 @@ class TestProximitySensors(TestCore):
 
     def test_read(self):
         self.pyrep.step()
-        distance = self.sensor.read()
+        distance, object = self.sensor.read()
         self.pyrep.step()
         self.assertAlmostEqual(distance, 0.1)
 
