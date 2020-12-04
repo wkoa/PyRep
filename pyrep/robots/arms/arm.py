@@ -346,6 +346,15 @@ class Arm(RobotComponent):
         """
         return self._ik_tip
 
+    def get_target(self) -> Dummy:
+        """Gets the Target of the arm.
+
+            Each arm is required to have a tip for path planning.
+
+            :return: The tip of the arm.
+        """
+        return self._ik_target
+
     def get_jacobian(self):
         """Calculates the Jacobian.
 
